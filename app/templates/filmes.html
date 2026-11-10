@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Filmes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Duração</th>
+                <th>Sinopse</th>
+                <th>Site oficial</th>
+                <th>Lançamento</th>
+                <th>Nota</th>
+                <th>Gênero</th>
+                <th>País</th>
+                <th>Diretor</th>
+                <th>Elenco</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for filme in filmes %}
+            <tr>
+                <td>{{ filme.nome }}</td>
+                ...
+                <td>
+                    {% for fa in filme.filmeator_set.all %}
+                        {{ fa.ator }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
