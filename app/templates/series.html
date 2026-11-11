@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Séries{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Lista de Séries</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Duração</th>
+            <th>Sinopse</th>
+            <th>Site oficial</th>
+            <th>Lançamento</th>
+            <th>Nota</th>
+            <th>Gênero</th>
+            <th>País</th>
+            <th>Diretor</th>
+            <th>Episódios</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for serie in series %}
+        <tr>
+            <td>{{ serie.nome }}</td>
+            <td>{{ serie.duracao }} min</td>
+            <td>{{ serie.sinopse }}</td>
+            <td>{{ serie.site_oficial }}</td>
+            <td>{{ serie.data_lancamento }}</td>
+            <td>{{ serie.nota_avaliacao }}</td>
+            <td>{{ serie.genero }}</td>
+            <td>{{ serie.pais }}</td>
+            <td>{{ serie.diretor }}</td>
+            <td>
+                {% for se in serie.serieepisodio_set.all %}
+                    <div>
+                        {{ se.temporada }} - {{ se.episodio }}
+                        ({{ se.duracao }} min, {{ se.data_disponibilizacao }})
+                    </div>
+                {% empty %}
+                    Nenhum episódio
+                {% endfor %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10">Nenhuma série cadastrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

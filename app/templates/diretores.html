@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diretores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Diretores</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Site</th>
+                <th>Instagram</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Nacionalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diretor in diretores %}
+            <tr>
+                <td>{{ diretor.nome }}</td>
+                <td>{{ diretor.site }}</td>
+                <td>{{ diretor.insta }}</td>
+                <td>{{ diretor.face }}</td>
+                <td>{{ diretor.twitter }}</td>
+                <td>{{ diretor.nacionalidade }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Nenhum diretor cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

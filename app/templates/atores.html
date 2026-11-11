@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Atores</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Site</th>
+                <th>Instagram</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Nacionalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ator in atores %}
+            <tr>
+                <td>{{ ator.nome }}</td>
+                <td>{{ ator.site }}</td>
+                <td>{{ ator.insta }}</td>
+                <td>{{ ator.face }}</td>
+                <td>{{ ator.twitter }}</td>
+                <td>{{ ator.nacionalidade }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Nenhum ator cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Continentes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Continentes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Países</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for continente in continentes %}
+            <tr>
+                <td>{{ continente.nome }}</td>
+                <td>
+                    {% for pais in continente.pais_set.all %}
+                        {{ pais.nome }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                        Nenhum país
+                    {% endfor %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">Nenhum continente cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

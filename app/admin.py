@@ -28,7 +28,8 @@ class SerieEpisodioInline(admin.TabularInline):
 
 @admin.register(Serie)
 class SerieAdmin(admin.ModelAdmin):
-    inlines = [SerieEpisodioInline]    
+    inlines = [SerieEpisodioInline]   
+
 
 
 admin.site.register(Genero)

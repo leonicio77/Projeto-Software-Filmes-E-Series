@@ -31,25 +31,29 @@ class Pais(models.Model):
         verbose_name_plural = "Países" 
 
 class Diretor(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=150, verbose_name="Nome")
+    site = models.CharField(max_length=200, blank=True, verbose_name="Site")
+    insta = models.CharField(max_length=200, blank=True, verbose_name="Instagram")
+    face = models.CharField(max_length = 200, blank=True, verbose_name="Facebook") 
+    twitter = models.CharField(max_length = 200, blank=True, verbose_name="Twitter")
+    nacionalidade = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, verbose_name="Nacionalidade")
     def __str__(self):
         return self.nome
- 
-    class Meta:
+
+    class Meta:        
         verbose_name = "Diretor"
         verbose_name_plural = "Diretores"
-
 
 class Filme(models.Model):
     nome = models.CharField(max_length=150)
     duracao = models.IntegerField(verbose_name="Duração (min)")
     sinopse = models.TextField()
     site_oficial = models.CharField(max_length=200, blank=True)
-    data_lancamento = models.DateField(verbose_name="Data de laçamento")
-    nota_avaliacao = models.DecimalField(max_digits=3, decimal_places=1, verbose_name="Nota de avaliaçãoo")
-    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
-    pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
-    diretor = models.ForeignKey(Diretor, on_delete=models.CASCADE)
+    data_lancamento = models.DateField(verbose_name="Data de lançamento")
+    nota_avaliacao = models.DecimalField(max_digits=3, decimal_places=1, verbose_name="Nota de avaliação")
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE, verbose_name="Gênero")
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, verbose_name="País")
+    diretor = models.ForeignKey(Diretor, on_delete=models.CASCADE,)
     def __str__(self):
         return self.nome
    
@@ -89,10 +93,10 @@ class Serie(models.Model):
     duracao = models.IntegerField(verbose_name="Duração (min)")
     sinopse = models.TextField()
     site_oficial = models.CharField(max_length=200, blank=True)
-    data_lancamento = models.DateField(verbose_name="Data de laçamento")
-    nota_avaliacao = models.DecimalField(max_digits=3, decimal_places=1, verbose_name="Nota de avaliaçãoo")
-    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
-    pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
+    data_lancamento = models.DateField(verbose_name="Data de lançamento")
+    nota_avaliacao = models.DecimalField(max_digits=3, decimal_places=1, verbose_name="Nota de avaliação")
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE, verbose_name="Gênero")
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, verbose_name="País")
     diretor = models.ForeignKey(Diretor, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -135,7 +139,7 @@ class SerieEpisodio(models.Model):
 
     class Meta:
         verbose_name = "Episódio da série"
-        verbose_name_plural = "Episódios das séries"    
+        verbose_name_plural = "Episódios da série"  
 
 
 
