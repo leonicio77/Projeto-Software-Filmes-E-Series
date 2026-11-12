@@ -13,4 +13,5 @@ urlpatterns = [
     path('continentes/', ContinentesView.as_view(), name='continentes'),
     path('temporadas/', TemporadasView.as_view(), name='temporadas'),
     path('episodios/', EpisodiosView.as_view(), name='episodios'),
+    path('', IndexView.as_view(), name = 'index'),
 ]

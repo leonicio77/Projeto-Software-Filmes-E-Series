@@ -1,52 +1,91 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
 
-{% block title %}Séries{% endblock %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="/">Filmes e Séries</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/filmes/">Filmes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/series/">Séries</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/atores/">Atores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/diretores/">Diretores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/generos/">Gêneros</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/paises/">Países</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/continentes/">Continentes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/temporadas/">Temporadas</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/episodios/">Episódios</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/admin/">Administração</a></li>
+        </ul>
+    </div>
+</nav>
 
-{% block content %}
-<h2 class="mb-4">Lista de Séries</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Duração</th>
-            <th>Sinopse</th>
-            <th>Site oficial</th>
-            <th>Lançamento</th>
-            <th>Nota</th>
-            <th>Gênero</th>
-            <th>País</th>
-            <th>Diretor</th>
-            <th>Episódios</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for serie in series %}
-        <tr>
-            <td>{{ serie.nome }}</td>
-            <td>{{ serie.duracao }} min</td>
-            <td>{{ serie.sinopse }}</td>
-            <td>{{ serie.site_oficial }}</td>
-            <td>{{ serie.data_lancamento }}</td>
-            <td>{{ serie.nota_avaliacao }}</td>
-            <td>{{ serie.genero }}</td>
-            <td>{{ serie.pais }}</td>
-            <td>{{ serie.diretor }}</td>
-            <td>
-                {% for se in serie.serieepisodio_set.all %}
-                    <div>
-                        {{ se.temporada }} - {{ se.episodio }}
-                        ({{ se.duracao }} min, {{ se.data_disponibilizacao }})
-                    </div>
-                {% empty %}
-                    Nenhum episódio
-                {% endfor %}
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="10">Nenhuma série cadastrada.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% endblock %}
+<div class="container-fluid mt-5">
+    <h2 class="mb-4">Lista de Séries</h2>
+    <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered table-smiped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Duração</th>
+                <th>Sinopse</th>
+                <th>Site oficial</th>
+                <th>Lançamento</th>
+                <th>Nota</th>
+                <th>Gênero</th>
+                <th>País</th>
+                <th>Diretor</th>
+                <th>Episódios</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for serie in series %}
+            <tr>
+                <td>{{ serie.nome }}</td>
+                <td>{{ serie.duracao }} min</td>
+                <td class="sinopse">{{ serie.sinopse|truncatechars:100 }}</td>
+                <td>{% if serie.site_oficial %}<a href="{{ serie.site_oficial }}" target="_blank">Visitar site</a>{% endif %}</td>
+                <td>{{ serie.data_lancamento }}</td>
+                <td>{{ serie.nota_avaliacao }}</td>
+                <td>{{ serie.genero }}</td>
+                <td>{{ serie.pais }}</td>
+                <td>{{ serie.diretor }}</td>
+                <td>
+                    {% for se in serie.serieepisodio_set.all %}
+                        <div>
+                            {{ se.temporada }} - {{ se.episodio }}
+                            ({{ se.duracao }} min, {{ se.data_disponibilizacao }})
+                        </div>
+                    {% empty %}
+                        Nenhum episódio
+                    {% endfor %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="10">Nenhuma série cadastrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

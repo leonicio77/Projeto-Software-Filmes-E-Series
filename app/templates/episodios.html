@@ -2,14 +2,41 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Episódios</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="/">Filmes e Séries</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/filmes/">Filmes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/series/">Séries</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/atores/">Atores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/diretores/">Diretores</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/generos/">Gêneros</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/paises/">Países</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/continentes/">Continentes</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/temporadas/">Temporadas</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/episodios/">Episódios</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/admin/">Administração</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container mt-5">
     <h2 class="mb-4">Lista de Episódios</h2>
-    <table class="table">
-        <thead>
+    <table class="table table-striped table-hover table-bordered table-smiped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Nome</th>
             </tr>
@@ -27,5 +54,9 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

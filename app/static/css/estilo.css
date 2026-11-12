@@ -1,0 +1,36 @@
+/* Fundo da página levemente cinza */
+body {
+    background-color: #f4f6f8;
+}
+
+/* Sombra embaixo do menu */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Títulos das páginas em verde escuro */
+h2 {
+    font-weight: 600;
+    color: #155724;
+}
+
+/* Tabela com fundo branco, para destacar do fundo cinza */
+.table {
+    background-color: #ffffff;
+}
+
+/* Coluna da sinopse: não deixa ficar larga demais */
+.sinopse {
+    max-width: 320px;
+    font-size: 0.9rem;
+}
+
+/* Cartões da página inicial sobem um pouco ao passar o mouse */
+.card {
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

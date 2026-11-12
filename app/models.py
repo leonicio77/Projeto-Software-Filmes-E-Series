@@ -36,7 +36,7 @@ class Diretor(models.Model):
     insta = models.CharField(max_length=200, blank=True, verbose_name="Instagram")
     face = models.CharField(max_length = 200, blank=True, verbose_name="Facebook") 
     twitter = models.CharField(max_length = 200, blank=True, verbose_name="Twitter")
-    nacionalidade = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, verbose_name="Nacionalidade")
+    nacionalidade = models.ForeignKey(Pais, on_delete=models.PROTECT, null=True, verbose_name="Nacionalidade")
     def __str__(self):
         return self.nome
 

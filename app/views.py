@@ -45,5 +45,8 @@ class TemporadasView(View):
 class EpisodiosView(View):
     def get(self, request, *args, **kwargs):
         episodios = Episodio.objects.all()
-        return render(request, 'episodios.html', {'episodios': episodios})                        
+        return render(request, 'episodios.html', {'episodios': episodios})         
 
+class IndexView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
