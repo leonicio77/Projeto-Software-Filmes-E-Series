@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark badge-success">
     <a class="navbar-brand" href="/">Filmes e Séries</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,17 +17,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/filmes/">Filmes</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/series/">Séries</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/atores/">Atores</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/diretores/">Diretores</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/generos/">Gêneros</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/paises/">Países</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/continentes/">Continentes</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/temporadas/">Temporadas</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/episodios/">Episódios</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/admin/">Administração</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/' %}active font-weight-bold{% endif %}" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/filmes/' %}active font-weight-bold{% endif %}" href="/filmes/">Filmes</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/series/' %}active font-weight-bold{% endif %}" href="/series/">Séries</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/atores/' %}active font-weight-bold{% endif %}" href="/atores/">Atores</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/diretores/' %}active font-weight-bold{% endif %}" href="/diretores/">Diretores</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/generos/' %}active font-weight-bold{% endif %}" href="/generos/">Gêneros</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/paises/' %}active font-weight-bold{% endif %}" href="/paises/">Países</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/continentes/' %}active font-weight-bold{% endif %}" href="/continentes/">Continentes</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/temporadas/' %}active font-weight-bold{% endif %}" href="/temporadas/">Temporadas</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/episodios/' %}active font-weight-bold{% endif %}" href="/episodios/">Episódios</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/admin/' %}active font-weight-bold{% endif %}" href="/admin/">Administração</a></li>
         </ul>
     </div>
 </nav>
@@ -44,7 +44,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Filmes</h5>
+                        <h5 class="card-title">Filmes <span class="badge badge-success">{{ total_filmes }}</span></h5>
                         <p class="card-text">Todos os filmes, com gênero, país, diretor e elenco.</p>
                         <a href="/filmes/" class="btn btn-success">Ver filmes</a>
                     </div>
@@ -54,7 +54,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Séries</h5>
+                        <h5 class="card-title">Séries <span class="badge badge-success">{{ total_series }}</span></h5>
                         <p class="card-text">Todas as séries, com seus episódios por temporada.</p>
                         <a href="/series/" class="btn btn-success">Ver séries</a>
                     </div>
@@ -64,7 +64,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Atores</h5>
+                        <h5 class="card-title">Atores <span class="badge badge-success">{{ total_filmes }}</span></h5>
                         <p class="card-text">Atores, suas redes sociais e nacionalidade.</p>
                         <a href="/atores/" class="btn btn-success">Ver atores</a>
                     </div>
@@ -74,7 +74,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Diretores</h5>
+                        <h5 class="card-title">Diretores <span class="badge badge-success">{{ total_diretores }}</span></h5>
                         <p class="card-text">Diretores, suas redes sociais e nacionalidade.</p>
                         <a href="/diretores/" class="btn btn-success">Ver diretores</a>
                     </div>
@@ -84,7 +84,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Gêneros</h5>
+                        <h5 class="card-title">Gêneros <span class="badge badge-success">{{ total_generos }}</span></h5>
                         <p class="card-text">Ação, drama, ficção científica e outros.</p>
                         <a href="/generos/" class="btn btn-success">Ver gêneros</a>
                     </div>
@@ -94,7 +94,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Países</h5>
+                        <h5 class="card-title">Países <span class="badge badge-success">{{ total_paises }}</span></h5>
                         <p class="card-text">Países de origem e seus continentes.</p>
                         <a href="/paises/" class="btn btn-success">Ver países</a>
                     </div>
@@ -104,7 +104,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Continentes</h5>
+                        <h5 class="card-title">Continentes <span class="badge badge-success">{{ total_continentes }}</span></h5>
                         <p class="card-text">Continentes e os países de cada um.</p>
                         <a href="/continentes/" class="btn btn-success">Ver continentes</a>
                     </div>
@@ -114,7 +114,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Temporadas</h5>
+                        <h5 class="card-title">Temporadas <span class="badge badge-success">{{ total_temporadas }}</span></h5>
                         <p class="card-text">1ª Temporada, 2ª Temporada e as demais.</p>
                         <a href="/temporadas/" class="btn btn-success">Ver temporadas</a>
                     </div>
@@ -124,7 +124,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Episódios</h5>
+                        <h5 class="card-title">Episódios <span class="badge badge-success">{{ total_episodios }}</span></h5>
                         <p class="card-text">Todos os episódios cadastrados.</p>
                         <a href="/episodios/" class="btn btn-success">Ver episódios</a>
                     </div>

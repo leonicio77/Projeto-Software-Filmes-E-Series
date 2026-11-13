@@ -8,10 +8,9 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Títulos das páginas em verde escuro */
 h2 {
     font-weight: 600;
-    color: #155724;
+    color: #d31020;
 }
 
 /* Tabela com fundo branco, para destacar do fundo cinza */
@@ -33,4 +32,21 @@ h2 {
 .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão sempre no fim do cartão, alinhado entre os cartões */
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Link da página atual no menu */
+.navbar .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }

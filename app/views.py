@@ -49,4 +49,15 @@ class EpisodiosView(View):
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+        contexto = {
+            'total_filmes': Filme.objects.count(),
+            'total_series': Serie.objects.count(),
+            'total_atores': Ator.objects.count(),
+            'total_diretores': Diretor.objects.count(),
+            'total_generos': Genero.objects.count(),
+            'total_paises': Pais.objects.count(),
+            'total_continentes': Continente.objects.count(),
+            'total_temporadas': Temporada.objects.count(),
+            'total_episodios': Episodio.objects.count(),
+        }
+        return render(request, 'index.html', contexto)

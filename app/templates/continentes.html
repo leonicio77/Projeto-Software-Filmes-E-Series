@@ -18,17 +18,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/filmes/">Filmes</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/series/">Séries</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/atores/">Atores</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/diretores/">Diretores</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/generos/">Gêneros</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/paises/">Países</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/continentes/">Continentes</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/temporadas/">Temporadas</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/episodios/">Episódios</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="/admin/">Administração</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/' %}active font-weight-bold{% endif %}" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/filmes/' %}active font-weight-bold{% endif %}" href="/filmes/">Filmes</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/series/' %}active font-weight-bold{% endif %}" href="/series/">Séries</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/atores/' %}active font-weight-bold{% endif %}" href="/atores/">Atores</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/diretores/' %}active font-weight-bold{% endif %}" href="/diretores/">Diretores</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/generos/' %}active font-weight-bold{% endif %}" href="/generos/">Gêneros</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/paises/' %}active font-weight-bold{% endif %}" href="/paises/">Países</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/continentes/' %}active font-weight-bold{% endif %}" href="/continentes/">Continentes</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/temporadas/' %}active font-weight-bold{% endif %}" href="/temporadas/">Temporadas</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/episodios/' %}active font-weight-bold{% endif %}" href="/episodios/">Episódios</a></li>
+            <li class="nav-item"><a class="nav-link text-white {% if request.path == '/admin/' %}active font-weight-bold{% endif %}" href="/admin/">Administração</a></li>
         </ul>
     </div>
 </nav>
